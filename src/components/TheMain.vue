@@ -1,5 +1,8 @@
 <template>
   <div class="container">
+    <div class="Found">
+        <h3>Found 62 Characters</h3>
+    </div>
     <div class="row justify-content-around g-5">
       <div v-for="singleCharacter in store.charactersList" class="col-3">
         <div class="card">
@@ -60,6 +63,13 @@ export default {
   background-color: white;
   padding: 30px 30px;
 
+  .Found{
+    background-color: darkslategray;
+    border-radius: 25px;
+    padding: 15px 10px;
+    margin-bottom: 20px;
+    color:white;
+  }
   .card {
     background-color: darkslategray;
 
