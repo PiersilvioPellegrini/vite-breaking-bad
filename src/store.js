@@ -1,14 +1,9 @@
 import { reactive } from "vue";
-import axios from "axios";
+
 
 export const store = reactive({
+    // array che contiene i dati delle card
   charactersList: [],
-  /**
-   * @property {number}        count
-   * @property {number}        pages
-   * @property {string | null} next
-   * @property {string | null} prev
-   */
   paginationInfo: {},
   loading: false
 });
