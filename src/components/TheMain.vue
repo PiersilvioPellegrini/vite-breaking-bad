@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="Found">
-        <h3>Found 62 Characters</h3>
+      <h3>Found 62 Characters</h3>
     </div>
     <div class="row justify-content-around g-5">
       <div v-for="singleCharacter in store.charactersList" class="col-3">
@@ -31,7 +31,7 @@ export default {
   },
   created() {
     axios
-        // sito dove prendo i dati
+      // sito dove prendo i dati
       .get("https://rickandmortyapi.com/api/character")
       // caso in cui la chiamata va a buon fine ed ottengo un codice 200
       .then((resp) => {
@@ -62,13 +62,14 @@ export default {
 .container {
   background-color: white;
   padding: 30px 30px;
+  margin-bottom: 80px;
 
-  .Found{
+  .Found {
     background-color: darkslategray;
     border-radius: 25px;
     padding: 15px 10px;
     margin-bottom: 20px;
-    color:white;
+    color: white;
   }
   .card {
     background-color: darkslategray;
