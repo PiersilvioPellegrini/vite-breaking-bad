@@ -6,8 +6,9 @@ export const store = reactive({
   charactersList: [],
   paginationInfo: {},
   Filters: null,
-  
+
 //   PER BONUS
+
   loading: false
 });
 
