@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="Found">
-      <h3>Found 62 Characters</h3>
+      <h3>Found {{ store.paginationInfo.count }} Characters</h3>
     </div>
     <div class="row justify-content-around g-5">
       <div v-for="singleCharacter in store.charactersList" class="col-3">
@@ -15,10 +15,9 @@
 <script>
 // importazione componente singola card
 import SingleCharacter from "./TheSingleCharacter.vue";
-// importazione di axios
-import axios from "axios";
+
 // importazione del file degli array
-import { store } from "../store";
+import { store, fetchCharacters } from "../store";
 export default {
   // componente esterno card singola
   components:{SingleCharacter},
@@ -29,30 +28,9 @@ export default {
     };
   },
   created() {
-    axios
-      // sito dove prendo i dati
-      .get("https://rickandmortyapi.com/api/character")
-      // caso in cui la chiamata va a buon fine ed ottengo un codice 200
-      .then((resp) => {
-        // Resetto eventuali errori passati
-        this.ajaxError = "";
-        // verifica in console
-        console.log("then invocato");
-        // Assegno il valore alla variabile del data charactersList
-        this.store.charactersList = resp.data.results;
-      })
-      // Caso in cui c'è un error nella chiamata ed il codice è diverso da 200
-      .catch((error) => {
-        // error contiene un istanza di AxiosError dalla quale posso estrarre varie
-        // informazioni sull'errore avvenuto
-        console.log(error);
-        // Codice HTTP dell'errore
-        console.log("Codice errore: ", error.response.status);
-        this.ajaxError =
-          "A causa di un errore, l'operazione non è andata a buon fine";
-        // Impostiamo a false il loading per nascondere la schermata di caricamento
-        this.store.loading = false;
-      });
+    // richaimo la funzione dallo store
+    fetchCharacters();
+    
   },
 };
 </script>
@@ -72,6 +50,7 @@ export default {
   }
   .card {
     background-color: darkslategray;
+
 
     h5,
     p {

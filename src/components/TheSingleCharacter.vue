@@ -40,3 +40,17 @@ export default {
   methods: {},
 };
 </script>
+
+
+<style scoped lang="scss">
+
+  .card {
+    background-color: darkslategray;
+
+    h5,
+    p {
+      color: whitesmoke;
+    }
+  }
+
+</style>
