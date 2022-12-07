@@ -5,25 +5,22 @@
     </div>
     <div class="row justify-content-around g-5">
       <div v-for="singleCharacter in store.charactersList" class="col-3">
-        <div class="card">
-          <img :src="singleCharacter.image" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">{{ singleCharacter.name }}</h5>
-            <p class="card-text"></p>
-          </div>
-        </div>
+        <!-- componente card singola= -->
+        <SingleCharacter :character="singleCharacter"></SingleCharacter>
       </div>
     </div>
-    
   </div>
 </template>
 
 <script>
 // importazione di axios
+import SingleCharacter from "./TheSingleCharacter.vue";
 import axios from "axios";
 // importazione del file degli array
 import { store } from "../store";
 export default {
+  // componente esterno card singola
+  components:{SingleCharacter},
   data() {
     return {
       ajaxError: "",
