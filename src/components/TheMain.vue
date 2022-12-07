@@ -13,8 +13,9 @@
 </template>
 
 <script>
-// importazione di axios
+// importazione componente singola card
 import SingleCharacter from "./TheSingleCharacter.vue";
+// importazione di axios
 import axios from "axios";
 // importazione del file degli array
 import { store } from "../store";
